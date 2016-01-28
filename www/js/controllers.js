@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('suricaApp.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 

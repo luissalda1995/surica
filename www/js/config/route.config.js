@@ -7,6 +7,13 @@
 	function routeConfig($stateProvider, $urlRouterProvider) {
 	  $stateProvider
 
+	  	.state('main', {
+	  		url: '/main',
+	  		templateUrl: 'templates/principal.html',
+	  		controller: 'MainController',
+	  		controllerAs: 'MainCtrl'
+	  	})
+
 	    .state('app', {
 	    url: '/app',
 	    abstract: true,

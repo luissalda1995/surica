@@ -14,6 +14,17 @@
 	  		controllerAs: 'MainCtrl'
 	  	})
 
+	  	.state('registro', {
+	  	url: '/usuarios/registro',
+	  	views : {
+	  	  'menuContent': {
+	  	  	templateUrl: 'templates/registro.html',
+	  	  	controller: 'RegistroController',
+	  	  	controllerAs : 'registroCtrl'
+	      }
+	  	}
+	  });
+
 	    .state('app', {
 	    url: '/app',
 	    abstract: true,

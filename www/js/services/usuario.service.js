@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 
-	angular.module('suricaApp.services', []).
-		factory('usuarioService',usuarioService);
+	angular.module('suricaApp.services').
+		factory('usuarioService', usuarioService);
 
 	usuarioService.$inject = ['http', '$q']
 

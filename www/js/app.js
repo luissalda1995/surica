@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'suricaApp.controllers' is found in controllers.js
 angular.module('suricaApp', ['ionic', 
+  'suricaApp.routeConfig',
   'suricaApp.services',
-  'suricaApp.controllers',
-  'suricaApp.routeConfig'
+  'suricaApp.controllers'
   ])
 
 .run(function($ionicPlatform) {

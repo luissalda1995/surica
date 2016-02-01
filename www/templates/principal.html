@@ -1,6 +1,18 @@
-<button class="button button-large button-positive" href='#/app/usuarios/registro'>
-  Registrarse
-</button>
-<button class="button button-large button-positive" ng-click='login()'>
-  Login
-</button>
+<ion-view>
+    <ion-content scroll="false">
+        <section class="login-container">
+            <div class = "col header text-center">
+               <img src="./img/ionic.png" class = "logo" />
+            </div>
+            <div class = "col button-row text-center" ng-click="MainCtrl.ir('registro')">
+               <img src="./img/facebook-button.png" />
+            </div>
+            <div class = "col button-row text-center">
+               <img src="./img/email-button.png" />
+            </div>
+            <div class = "col text-center">
+                No tienes aún una cuenta? <strong><a href = "#">Registrate ya!</a></strong>
+            </div>            
+        </section>
+    </ion-content>
+</ion-view>

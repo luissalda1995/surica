@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-angular.module('starter.controllers', [])
+angular.module('suricaApp.controllers')
 
-.controller('MainController', function($scope, $ionicModal, $timeout) {
+.controller('MainController', function($scope, $ionicModal, $timeout, $location, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -13,7 +13,14 @@ angular.module('starter.controllers', [])
   //});
 
   // Form data for the login modal
-  $scope.loginData = {};
+
+  var vm = this;
+
+  vm.closeLogin = closeLogin;
+  vm.login = login;
+  vm.doLogin = doLogin;
+  vm.ir = ir;
+  vm.loginData = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -23,36 +30,29 @@ angular.module('starter.controllers', [])
   });
 
   // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
+  function closeLogin() {
     $scope.modal.hide();
   };
 
   // Open the login modal
-  $scope.login = function() {
+  function login() {
     $scope.modal.show();
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  function doLogin() {
+    console.log('Doing login', vm.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
-      $scope.closeLogin();
+      vm.closeLogin();
     }, 1000);
   };
-})
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  function ir(ruta) {
+    $state.go(ruta);
+  }
 })
 
 })();

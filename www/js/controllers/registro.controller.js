@@ -13,7 +13,7 @@
 		vm.datosUsuario = {};
 
 		function registrar() {
-			usuarioService.registrar(datosUsuario).then(function(data){
+			usuarioService.registrar(vm.datosUsuario).then(function(data){
 				console.log(data)
 				console.log('usuario registrado con exito');
 			},function(error){

@@ -9729,14 +9729,15 @@ a.button {
   position: absolute;
   opacity: 0;
   -webkit-transition-duration: 0s;
-  transition-duration: 0s; }
+  transition-duration: 0s; 
+}
 
 .login-container {
-  display: -webkit-flex;
-  -webkit-flex-direction: column;
-  height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efad62), color-stop(100%,#f7d47c));
-  background: -webkit-linear-gradient(top, #efad62 0%,#f7d47c 100%);
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efad62), color-stop(100%,#f7d47c));
+    background: -webkit-linear-gradient(top, #efad62 0%,#f7d47c 100%);
 }
 
 .login-container > .button-row img {

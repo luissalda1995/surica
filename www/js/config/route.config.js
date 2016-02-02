@@ -30,11 +30,11 @@
 	    controller: 'MainController'
 	  })
 
-	  .state('app.search', {
-	    url: '/search',
+	  .state('app.categorias', {
+	    url: '/categorias',
 	    views: {
 	      'menuContent': {
-	        templateUrl: 'templates/search.html'
+	        templateUrl: 'templates/categorias.html'
 	      }
 	    }
 	  })

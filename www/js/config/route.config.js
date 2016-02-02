@@ -16,8 +16,6 @@
 
 	  	.state('registro', {
 	  	url: '/usuarios/registro',
-
-
 	  	  	templateUrl: 'templates/registro.html',
 	  	  	controller: 'RegistroController',
 	  	  	controllerAs : 'RegistroCtrl'
@@ -34,7 +32,9 @@
 	    url: '/categorias',
 	    views: {
 	      'menuContent': {
-	        templateUrl: 'templates/categorias.html'
+	        templateUrl: 'templates/categorias.html',
+	        controller: 'CategoriasController',
+	        controllerAs: 'CategoriasCtrl'
 	      }
 	    }
 	  })

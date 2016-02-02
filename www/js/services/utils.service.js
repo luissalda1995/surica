@@ -12,7 +12,7 @@
 		};
 		return service;
 
-		function getCategorias(tipo){
+		function getCategorias(){
 			var url = 'http://localhost:3000/utils/categoria';
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {

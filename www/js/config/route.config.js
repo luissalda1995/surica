@@ -39,6 +39,17 @@
 	    }
 	  })
 
+	  .state('app.proveedores', {
+	    url: '/proveedores/:servicio',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/proveedores.html',
+	        controller: 'ProveedoresController',
+	        controllerAs: 'ProveedoresCtrl'
+	      }
+	    }
+	  })
+
 	  .state('app.browse', {
 	      url: '/browse',
 	      views: {

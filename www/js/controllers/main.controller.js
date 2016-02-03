@@ -3,7 +3,7 @@
 
 angular.module('suricaApp.controllers')
 
-.controller('MainController', function($scope, $ionicModal, $timeout, $location, $state) {
+.controller('MainController', function($scope, $ionicModal, $timeout, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

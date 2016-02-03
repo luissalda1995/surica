@@ -2,18 +2,18 @@
 	'use strict';
 
 	angular.module('suricaApp.services').
-		factory('utilsService', utilsService);
+		factory('proveedorService', proveedorService);
 
-	utilsService.$inject = ['$http', '$q']
+	proveedorService.$inject = ['$http', '$q']
 
-	function utilsService($http, $q){
+	function proveedorService($http, $q){
 		var service = {
-			getCategorias: getCategorias
+			getProveedores: getProveedores
 		};
 		return service;
 
-		function getCategorias(){
-			var url = 'http://localhost:3000/utils/categorias';
+		function getProveedores(servicio){
+			var url = 'http://localhost:3000/usuarios/' + servicio;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);

@@ -1,5 +1,9 @@
-<ul class="list">
-    <li class="item" ng-repeat="categoria in CategoriasCtrl.categorias" ng-click="CategoriasCtrl.ir('app.proveedores', categoria)">
-      {{categoria}}
-    </li>
-</ul>
+<ion-view view-title="Categorias">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="categoria in CategoriasCtrl.categorias" ng-click="CategoriasCtrl.ir('app.proveedores', categoria)">
+        {{categoria}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

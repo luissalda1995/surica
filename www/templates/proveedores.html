@@ -1,5 +1,10 @@
-<ul class="list">
-    <li class="item" ng-repeat="proveedor in ProveedoresCtrl.proveedores">
-      {{proveedor}}
-    </li>
-</ul>
+<ion-view view-title="Proveedores">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="proveedor in ProveedoresCtrl.proveedores">
+      	<h2>{{proveedor.username}}</h2>
+        <p>{{proveedor.nombre}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

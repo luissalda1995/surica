@@ -7,7 +7,8 @@
 angular.module('suricaApp', ['ionic', 
   'suricaApp.routeConfig',
   'suricaApp.services',
-  'suricaApp.controllers'
+  'suricaApp.controllers',
+  'firebase'
   ])
 
 .run(function($ionicPlatform) {

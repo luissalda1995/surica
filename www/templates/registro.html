@@ -1,27 +1,32 @@
-<div class="list">
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Username</span>
-    <input ng-model='RegistroCtrl.datosUsuario.username' type="text">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Nombre</span>
-    <input ng-model='RegistroCtrl.datosUsuario.nombre' type="text">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Contraseña</span>
-    <input ng-model='RegistroCtrl.datosUsuario.password' type="text">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Apellido</span>
-    <input ng-model='RegistroCtrl.datosUsuario.apellido' type="text">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Servicio</span>
-    <select ng-model='RegistroCtrl.datosUsuario.servicio'>
-      <option ng-repeat="categoria in RegistroCtrl.categorias">{{categoria}}</option>
-    </select>
-  </label>
-  <button class="button button-positive" ng-click="RegistroCtrl.registrar();">
-    Registrarme
-  </button>
-</div>
+<ion-view title="Registro">
+    <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
+        <form class="list" ng-submit="RegistroCtrl.registrar();">
+            <ion-list>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input ng-model='RegistroCtrl.datosUsuario.username' type="text">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Nombre</span>
+                <input ng-model='RegistroCtrl.datosUsuario.nombre' type="text">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Contraseña</span>
+                <input ng-model='RegistroCtrl.datosUsuario.password' type="text">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Apellido</span>
+                <input ng-model='RegistroCtrl.datosUsuario.apellido' type="text">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Servicio</span>
+                <select ng-model='RegistroCtrl.datosUsuario.servicio'>
+                  <option ng-repeat="categoria in RegistroCtrl.categorias">{{categoria}}</option>
+                </select>
+              </label>
+            </ion-list>
+            <button type="submit" class="button button-stable button-block">Registrarme</button>
+        </form>
+        
+    </ion-content>
+</ion-view>

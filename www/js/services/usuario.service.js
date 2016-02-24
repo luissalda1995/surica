@@ -8,7 +8,8 @@
 
 	function usuarioService($http, $q){
 		var service = {
-			registrar: registrar
+			registrar: registrar,
+			login: login
 		};
 		return service;
 
@@ -24,6 +25,10 @@
 				deferred.reject(error.data);
 			});
 			return deferred.promise;
+		}
+
+		function login(usuarioInput){
+
 		}
 	}
 })();

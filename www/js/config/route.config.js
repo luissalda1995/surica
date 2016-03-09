@@ -50,6 +50,40 @@
 	    }
 	  })
 
+	  .state('app.servicios', {
+	    url: '/servicios/:usuario',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/servicios.html',
+	        controller: 'ServiciosController',
+	        controllerAs: 'ServiciosCtrl'
+	      }
+	    }
+	  })
+
+	  .state('app.servicios.cliente', {
+	    url: '/servicios/cliente/:usuario',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/servicios.html',
+	        controller: 'ServiciosController',
+	        controllerAs: 'ServiciosCtrl'
+	      }
+	    }
+	  })
+
+	  .state('app.servicios.proveedor', {
+	    url: '/servicios/cliente/:usuario',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/serviciosProveedor.html',
+	        controller: 'ServiciosController',
+	        controllerAs: 'ServiciosCtrl'
+	      }
+	    }
+	  })
+
+
 	  // if none of the above states are matched, use this as the fallback
 	  $urlRouterProvider.otherwise('/main');
 	}

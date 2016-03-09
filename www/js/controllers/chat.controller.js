@@ -2,13 +2,14 @@
 	'use strict';
 
 	angular.module('suricaApp.controllers').
-		controller('ChatController', CategoriasController);
+		controller('ChatController', ChatController);
 
-	CategoriasController.$inject = [ '$firebase']
+	ChatController.$inject = [ 'chatService'];
 
-	function CategoriasController(firebase) {
-		var ref = new Firebase('ref');
-		var sync = $firebase();
-		var vm = this;		
-	}; 
+	function ChatController(chatService) {
+		var sync = chatService.getFirebaseConfig();
+		var vm = this;	
+
+			
+	}
 })();

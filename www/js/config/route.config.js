@@ -50,6 +50,17 @@
 	    }
 	  })
 
+	  .state('app.chats', {
+	    url: '/chats',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/chats.html',
+	        controller: 'ChatsController',
+	        controllerAs: 'ChatsCtrl'
+	      }
+	    }
+	  })	  
+
 	  .state('app.servicios', {
 	    url: '/servicios/:usuario',
 	    views: {
@@ -81,8 +92,7 @@
 	        controllerAs: 'ServiciosCtrl'
 	      }
 	    }
-	  })
-
+	  });
 
 	  // if none of the above states are matched, use this as the fallback
 	  $urlRouterProvider.otherwise('/main');

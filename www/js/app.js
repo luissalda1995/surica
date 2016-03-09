@@ -6,10 +6,11 @@
 // 'suricaApp.controllers' is found in controllers.js
 angular.module('suricaApp', ['ionic', 
   'suricaApp.routeConfig',
+  'suricaApp.filters',
   'suricaApp.services',
   'suricaApp.controllers',
-  'suricaApp.filters',
-  'firebase'
+  'firebase',
+  'angular-meteor'
   ])
 
 .run(function($ionicPlatform) {

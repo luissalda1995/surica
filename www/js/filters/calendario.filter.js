@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('suricaApp.filters').
-		controller('calendarioFilter', calendarioFilter);
+		filter('calendarioFilter', calendarioFilter);
 
 	function calendarioFilter(){
 		return function(){

@@ -59,6 +59,17 @@
 	        controllerAs: 'ChatsCtrl'
 	      }
 	    }
+	  })
+
+	  .state('app.chat', {
+	    url: '/chat/:chatId',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/chat-detalle.html',
+	        controller: 'ChatDetalleController',
+	        controllerAs: 'ChatDetalleCtrl'
+	      }
+	    }
 	  })	  
 
 	  .state('app.servicios', {

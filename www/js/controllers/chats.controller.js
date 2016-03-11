@@ -13,7 +13,7 @@
 		vm.chats = $scope.$meteorCollection(Chats, false);
 		vm.remover = remover;
 
-		function remover(){
+		function remover(chat){
 			vm.chats.remove(chat);
 		}
 	}

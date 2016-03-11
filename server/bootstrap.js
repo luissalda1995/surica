@@ -1,46 +1,62 @@
 if (Meteor.isServer) {
-	Meteor.startup(function(){
-		if(Chats.find().count() === 0) {
-			Mensajes.remove({});
+  Meteor.startup(function () {
+    if (Chats.find().count() === 0) {
+      Mensajes.remove({});
 
-			var mensajes = [
-				{
-					text: 'Mensaje 1',
-					timestamp: moment().subtract(1, 'hours').toDate()
-				},
-				{
-					text: 'Mensaje 2',
-					timestamp: moment().subtract(3, 'hours').toDate()
-				},
-				{
-					text: 'Mensaje 3',
-					timestamp: moment().subtract(2, 'days').toDate()
-				}
-			];
+      var messages = [
+        {
+          text: 'Caminando entre Códigos',
+          timestamp: moment().subtract(1, 'hours').toDate()
+        },
+        {
+          text: 'Hola, soy yo',
+          timestamp: moment().subtract(2, 'hours').toDate()
+        },
+        {
+          text: 'En medio del puente',
+          timestamp: moment().subtract(1, 'days').toDate()
+        },
+        {
+          text: 'Lanzando mi startup',
+          timestamp: moment().subtract(4, 'days').toDate()
+        },
+        {
+          text: 'Enciende las luces',
+          timestamp: moment().subtract(2, 'weeks').toDate()
+        }
+      ];
 
-			mensajes.forEach(m => Mensajes.insert(m));
+      messages.forEach(m => Mensajes.insert(m));
 
-			var chats = [
-				{
-					name: 'Luis Miguel',
-					picture: 'http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg'
-				},
-				{
-					name: 'Roberto',
-					picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkbH-D14iM9xVUppNpL9BmchB1ysVj6g4nPZOgNBj-kygVSIQH'
-				},
-				{
-					name: 'Jhon',
-					picture: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT4cAR0b6zFqpzpZjPA-vrJjlxKaDffcovv0Ey1AaMdPrplaWkO'
-				}
-			];
+      var chats = [
+        {
+          name: 'Jesús Conde',
+      picture: 'https://pbs.twimg.com/profile_images/1001601612/005_bigger.jpg'
+        },
+        {
+          name: 'Hub Spot',
+      picture: 'https://pbs.twimg.com/profile_images/626105757004492800/CdxLMoHH_400x400.png'
+        },
+        {
+           name: 'Lisa Collins',
+      picture: 'https://pbs.twimg.com/profile_images/587606033222082561/c53Lkbrz.jpg'
+        },
+        {
+          name: 'Ivo Spigel',
+      picture: 'https://pbs.twimg.com/profile_images/572380074209316864/mlzFGcN8.jpeg'
+        },
+        {
+         name: 'Loly Daskall',
+      picture: 'https://pbs.twimg.com/profile_images/127105431/Lolly2_400x400.jpg'
+        }
+      ];
 
-			chats.forEach(chat => {
-				let mensaje = Mensajes.findOne({ chatId: { $exists : false}});
-				chat.lastMessage = mensaje;
-				let chatId = Chats.insert(chat);
-				Mensajes.update(mensaje._id, { $set: { chatId: chatId}})
-			});
-		}
-	});
+      chats.forEach(chat => {
+        let mensaje = Mensajes.findOne({ chatId: { $exists: false } });
+      chat.lastMessage = mensaje;
+      let chatId = Chats.insert(chat);
+      Mensajes.update(mensaje._id, { $set: { chatId: chatId } })
+    });
+  }
+});
 }

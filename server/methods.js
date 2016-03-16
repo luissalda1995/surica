@@ -2,7 +2,8 @@ Meteor.methods({
   newMessage: function (mensaje) {
     check(mensaje, {
       text: String,
-      chatId: String
+      chatId: String,
+      userId: String
     });
  
     mensaje.timestamp = new Date();

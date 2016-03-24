@@ -5,16 +5,16 @@
 		factory('securityInterceptor', securityInterceptor)
 		.config(config);
 
-	servicioService.$inject = ['$q', '$state'];
+	securityInterceptor.$inject = ['$q'];
 
-	function securityInterceptor($http, $state){
+	function securityInterceptor($q, $state){
 		var interceptor = {
 			response: response,
 			responseError: responseError
 		};
 		return interceptor;
 
-		function res(res) {
+		function response(res) {
           // do something on success
           return res;
         }

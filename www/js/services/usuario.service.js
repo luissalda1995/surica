@@ -7,10 +7,11 @@
 	usuarioService.$inject = ['$http', '$q']
 
 	function usuarioService($http, $q){
+		var usuario;
 		var service = {
 			registrar: registrar,
 			login: login,
-			isLogin: isLogin
+			usuario: usuario
 		};
 		return service;
 
@@ -21,6 +22,7 @@
 				usuario : usuarioInput
 			};
 			$http.post(url, request).then(function(response) {
+				usuario = response.data;
 				deferred.resolve(response.data);
 			}, function(error) {
 				deferred.reject(error.data);
@@ -29,13 +31,14 @@
 		}
 
 		function login(usuarioInput){
-			var url = 'http://localhost:3000/login';
+			var url = 'http://localhost:3000/usuarios/login';
 			var deferred = $q.defer();
 			var request = {
 				username : usuarioInput.username,
 				password: usuarioInput.password,
 			};
 			$http.post(url, request).then(function(response) {
+				usuario = response.data;
 				deferred.resolve(response.data);
 			}, function(error) {
 				deferred.reject(error.data);
@@ -43,15 +46,5 @@
 			return deferred.promise;
 		}
 
-		function isLogin(usuarioInput){
-			var url = 'http://localhost:3000/login';
-			var deferred = $q.defer();
-			$http.get(url).then(function(response) {
-				deferred.resolve(response.data);
-			}, function(error) {
-				deferred.reject(error.data);
-			});
-			return deferred.promise;
-		}
 	}
 })();

@@ -109,8 +109,4 @@
 	  $urlRouterProvider.otherwise('/main');
 	}
 
-	function checkLoggedin(usuarioService){
-
-	}
-
 })();

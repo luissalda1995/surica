@@ -4,9 +4,9 @@
 	angular.module('suricaApp.controllers').
 		controller('ChatDetalleController', ChatDetalleController);
 
-	ChatDetalleController.$inject = ['$scope', '$stateParams', '$timeout', '$ionicScrollDelegate', '$meteor']
+	ChatDetalleController.$inject = ['$scope', '$stateParams', '$timeout', '$ionicScrollDelegate', '$meteor', 'usuarioService']
 
-	function ChatDetalleController ($scope, $stateParams, $timeout, $ionicScrollDelegate, $meteor) {
+	function ChatDetalleController ($scope, $stateParams, $timeout, $ionicScrollDelegate, $meteor, usuarioService) {
 
       var vm = this;
 	  vm.chat = $scope.$meteorObject(Chats, $stateParams.chatId, false);
@@ -30,7 +30,8 @@
 	 
 	    $meteor.call('newMessage', {
 	      text: vm.data.mensaje,
-	      chatId: $stateParams.chatId
+	      chatId: $stateParams.chatId,
+	      userId: usuarioService.usuario().username
 	    });
 	 
 	    delete vm.data.mensaje;

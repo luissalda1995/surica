@@ -1,29 +1,35 @@
 (function(){
   'use strict';
 
-angular.module('suricaApp.controllers')
+  angular.module('suricaApp.controllers')
 
-.controller('MainController', function($scope, $ionicModal, $timeout, $state) {
+  .controller('MainController', MainController);
 
+  MainController.$inject = ['usuarioService', '$ionicPopup', '$state'];
 
-  var vm = this;
+  function MainController(usuarioService, $ionicPopup, $state) {
 
-  vm.login = login;
-  vm.loginData = {};
+    var vm = this;
 
-  function login() {
-    usuarioService.login(vm.datosUsuario).then(function(data){
-      console.log(data)
-      console.log('usuario logueado con exito');
-      ir('app.categorias')
-    },function(error){
-      console.log(error);
-    })
-  };
+    vm.login = login;
+    vm.loginData = {};
 
-  function ir(ruta) {
-    $state.go(ruta);
+    function login() {
+      usuarioService.login(vm.loginData).then(function(data){
+        console.log(data);
+        console.log('usuario logueado con exito');
+        ir('app.categorias');
+      },function(error){
+        var alertaPopup = $ionicPopup.alert({
+          title: 'Login failed!',
+          template: 'Please check your credentials!'
+        });
+      });
+    }
+
+    function ir(ruta) {
+      $state.go(ruta);
+    }
   }
-})
 
 })();

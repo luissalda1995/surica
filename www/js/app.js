@@ -30,4 +30,16 @@ angular.module('suricaApp', ['ionic',
       StatusBar.styleDefault();
     }
   });
+})
+
+.run(function run($rootScope, $state, usuarioService){
+  $rootScope.$on('$stateChangeStart', function(event, next, nextParams, fromState){
+    if(!usuarioService.estaAutenticado()){
+      if(next.name !== 'main' && next.name !== 'registro'){
+        event.preventDefault();
+        $state.go('main');
+      }
+      
+    }
+  });
 });

@@ -4,14 +4,19 @@
 	angular.module('suricaApp.services').
 		factory('usuarioService', usuarioService);
 
-	usuarioService.$inject = ['$http', '$q']
+	usuarioService.$inject = ['$http', '$q'];
 
 	function usuarioService($http, $q){
+		cargarCredencialesUsuario();
+
 		var usuario;
+		var estaAutenticado = false;
 		var service = {
 			registrar: registrar,
 			login: login,
-			usuario: usuario
+			usuario: getUsuario,
+			estaAutenticado: getAutenticado,
+			logout: logout
 		};
 		return service;
 
@@ -38,7 +43,7 @@
 				password: usuarioInput.password,
 			};
 			$http.post(url, request).then(function(response) {
-				usuario = response.data;
+				guardarCredencialesUsuario(response.data);
 				deferred.resolve(response.data);
 			}, function(error) {
 				deferred.reject(error.data);
@@ -46,5 +51,47 @@
 			return deferred.promise;
 		}
 
+		function logout(){
+			var url = 'http://localhost:3000/usuarios/logout';
+			var deferred = $q.defer();
+			$http.post(url).then(function(response) {
+				eliminarCredencialesUsuario();
+				deferred.resolve(response.data);
+			}, function(error) {
+				deferred.reject(error.data);
+			});
+			return deferred.promise;
+		}
+
+		function getAutenticado(){
+			return estaAutenticado;
+		}
+
+		function getUsuario(){
+			return usuario;
+		}
+
+		function guardarCredencialesUsuario(usuario){
+			window.localStorage.setItem('usuario', angular.toJson(usuario));
+			usarCredenciales(usuario);
+		}
+
+		function cargarCredencialesUsuario(){
+			var usuario = window.localStorage.getItem('usuario');
+			if(usuario){
+				usarCredenciales(usuario);
+			}
+		}
+
+		function usarCredenciales(usuar){
+			usuario = usuar;
+			estaAutenticado = true;
+		}
+
+		function eliminarCredencialesUsuario(){
+			usuario = {};
+			estaAutenticado = false;
+			window.localStorage.removeItem('usuario');
+		}
 	}
 })();

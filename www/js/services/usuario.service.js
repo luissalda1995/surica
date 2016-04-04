@@ -21,7 +21,7 @@
 		return service;
 
 		function registrar(usuarioInput){
-			var url = 'http://localhost:3000/usuarios';
+			var url = 'http://localhost:3100/usuarios';
 			var deferred = $q.defer();
 			var request = {
 				usuario : usuarioInput
@@ -36,7 +36,7 @@
 		}
 
 		function login(usuarioInput){
-			var url = 'http://localhost:3000/usuarios/login';
+			var url = 'http://localhost:3100/usuarios/login';
 			var deferred = $q.defer();
 			var request = {
 				username : usuarioInput.username,
@@ -52,7 +52,7 @@
 		}
 
 		function logout(){
-			var url = 'http://localhost:3000/usuarios/logout';
+			var url = 'http://localhost:3100/usuarios/logout';
 			var deferred = $q.defer();
 			$http.post(url).then(function(response) {
 				eliminarCredencialesUsuario();

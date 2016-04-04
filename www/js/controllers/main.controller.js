@@ -13,6 +13,7 @@
 
     vm.login = login;
     vm.loginData = {};
+    vm.usuario = getUsuario;
 
     function login() {
       usuarioService.login(vm.loginData).then(function(data){
@@ -25,6 +26,10 @@
           template: 'Please check your credentials!'
         });
       });
+    }
+
+    function getUsuario(){
+      return usuarioService.getUsuario();
     }
 
     function ir(ruta) {

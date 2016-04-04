@@ -6,7 +6,7 @@
   <ion-content class="chat" delegate-handle="chatScroll">
     <div class="message-list">
       <div ng-repeat="mensaje in ChatDetalleCtrl.mensajes" class="message-wrapper">
-        <div class="message" ng-class-even="'message-mine'" ng-class-odd="'message-other'">
+        <div class="message" ng-class="mensaje.userId === ChatDetalleCtrl.usuario().username ? 'message-mine' : 'message-other'">
           <div class="message-text">{{mensaje.text}}</div>
           <span class="message-timestamp">{{mensaje.timestamp | amDateFormat: 'HH:MM'}}</span>
         </div>

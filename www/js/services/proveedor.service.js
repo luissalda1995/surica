@@ -13,7 +13,7 @@
 		return service;
 
 		function getProveedores(servicio){
-			var url = 'http://localhost:3000/usuarios/' + servicio;
+			var url = 'http://localhost:3100/usuarios/' + servicio;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);

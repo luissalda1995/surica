@@ -9,6 +9,7 @@
 	function ChatDetalleController ($scope, $stateParams, $timeout, $ionicScrollDelegate, $meteor, usuarioService) {
 
       var vm = this;
+      vm.usuario = getUsuario;
 	  vm.chat = $scope.$meteorObject(Chats, $stateParams.chatId, false);
 	 
 	  vm.mensajes = $scope.$meteorCollection(function () {
@@ -36,7 +37,11 @@
 	 
 	    delete vm.data.mensaje;
 	  }
-	 
+
+	  function getUsuario(){
+		return usuarioService.usuario();
+	  }
+		 
 	  function inputUp () {
 	    $timeout(function() {
 	      $ionicScrollDelegate.$getByHandle('chatScroll').scrollBottom(true);

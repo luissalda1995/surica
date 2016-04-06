@@ -58,6 +58,18 @@
 	        controller: 'ChatsController',
 	        controllerAs: 'ChatsCtrl'
 	      }
+	    },
+	    resolve: {
+    		chats: ['$q', 'usuarioService', function ($q, usuarioService) {
+	          var deferred = $q.defer();
+
+	          Meteor.subscribe('chats', usuarioService.usuario().username, {
+	            onReady: deferred.resolve,
+	            onStop: deferred.reject
+	          });
+
+	          return deferred.promise;
+	        }]
 	    }
 	  })
 

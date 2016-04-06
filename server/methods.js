@@ -1,5 +1,17 @@
 Meteor.methods({
-  newMessage: function (mensaje) {
+  newChat: function(userId, otherId) {
+ 
+    check(otherId, String);
+ 
+    var chat = {
+      userIds: [userId, otherId],
+      createdAt: new Date()
+    };
+ 
+    return Chats.insert(chat);
+  },  
+
+  newMessage: function(mensaje) {
     check(mensaje, {
       text: String,
       chatId: String,

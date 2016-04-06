@@ -77,7 +77,7 @@
 		}
 
 		function cargarCredencialesUsuario(){
-			var usuario = window.localStorage.getItem('usuario');
+			var usuario = angular.fromJson(window.localStorage.getItem('usuario'));
 			if(usuario){
 				usarCredenciales(usuario);
 			}

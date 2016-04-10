@@ -1,40 +1,21 @@
 (function(){
-	'use strict';
+  'use strict';
 
-	angular.module('suricaApp.controllers').
-		controller('ServiciosController', serviciosController);
+  angular.module('suricaApp.controllers')
 
-	serviciosController.$inject = ['servicioService', '$stateParams']
+  .controller('ServiciosController', ServiciosController);
 
-	function serviciosController(servicioService, $stateParams) {
-		var vm = this;
-		vm.serviciosCliente = [];
-		vm.serviciosCliente = [];
+  ServiciosController.$inject = ['usuarioService',];
 
-		activate();
+  function ServiciosController(usuarioService) {
 
-		function activate (){
-			return getServiciosCliente().then(function(){
-				console.log('servicios cargados');
-			}, function(error){
-				console.log(eror);
-			});
-		};
+    var vm = this;
 
-		function getServiciosCliente(){
-			return servicioService.getServiciosCliente($stateParams.usuario).then(function(data){
-				vm.serviciosCliente = data;
-				console.log(vm.serviciosCliente);
-				return vm.serviciosCliente;			
-			});
-		};
+    vm.usuario = getUsuario;
 
-		function getServiciosProveedor(){
-			return servicioService.getServiciosProveedor($stateParams.usuario).then(function(data){
-				vm.serviciosProveedor = data;
-				console.log(vm.serviciosProveedor);
-				return vm.serviciosProveedor;			
-			});
-		};
-	}; 
+    function getUsuario(){
+    return usuarioService.usuario();
+    }
+  }
+
 })();

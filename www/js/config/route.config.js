@@ -85,7 +85,7 @@
 	  })	  
 
 	  .state('app.servicios', {
-	    url: '/servicios/:usuario',
+	  	url: '/servicios',
 	    views: {
 	      'menuContent': {
 	        templateUrl: 'templates/servicios.html',
@@ -96,23 +96,23 @@
 	  })
 
 	  .state('app.servicios.cliente', {
-	    url: '/servicios/cliente/:usuario',
+	    url: '/cliente/:usuario',
 	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/servicios.html',
-	        controller: 'ServiciosController',
-	        controllerAs: 'ServiciosCtrl'
+	      'tab-servicios-cliente': {
+	        templateUrl: 'templates/serviciosCliente.html',
+	        controller: 'ServiciosClienteController',
+	        controllerAs: 'ServiciosClienteCtrl'
 	      }
 	    }
 	  })
 
 	  .state('app.servicios.proveedor', {
-	    url: '/servicios/cliente/:usuario',
+	    url: '/proveedor/:usuario',
 	    views: {
-	      'menuContent': {
+	      'tab-servicios-proveedor': {
 	        templateUrl: 'templates/serviciosProveedor.html',
-	        controller: 'ServiciosController',
-	        controllerAs: 'ServiciosCtrl'
+	        controller: 'ServiciosProveedorController',
+	        controllerAs: 'ServiciosProveedorCtrl'
 	      }
 	    }
 	  });

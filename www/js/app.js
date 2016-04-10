@@ -11,7 +11,7 @@ angular.module('suricaApp', ['ionic',
   'suricaApp.services',
   'suricaApp.controllers',
   'suricaApp.interceptors',
-  'firebase',
+  //'firebase',
   'angular-meteor',
   'angularMoment'
   ])

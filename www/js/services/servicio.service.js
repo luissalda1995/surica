@@ -14,7 +14,7 @@
 		return service;
 
 		function getServiciosCliente(servicio){
-			var url = 'http://localhost:3100/servicios/cliente' + servicio;
+			var url = 'http://localhost:3100/servicios/cliente/' + servicio;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -25,7 +25,7 @@
 		}
 
 		function getServiciosProveedor(servicio){
-			var url = 'http://localhost:3100/servicios/proveedor' + servicio;
+			var url = 'http://localhost:3100/servicios/proveedor/' + servicio;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);

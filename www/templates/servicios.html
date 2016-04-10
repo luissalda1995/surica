@@ -1,11 +1,13 @@
 <ion-view title="Servicios">
     <ion-tabs class="tabs-positive tabs-icon-top">
 
-      <ion-tab title="Cliente" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" ui-sref="app.servicios.cliente">
+      <ion-tab title="Cliente" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" ui-sref="app.servicios.cliente({usuario: ServiciosCtrl.usuario().username})">
+      	<ion-nav-view name="tab-servicios-cliente"></ion-nav-view>
         <!-- Tab 1 content -->
       </ion-tab>
 
-      <ion-tab title="Proveedor" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline" ui-sref="app.servicios.proveedor">
+      <ion-tab title="Proveedor" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline" ui-sref="app.servicios.proveedor({usuario: ServiciosCtrl.usuario().username})">
+      	<ion-nav-view name="tab-servicios-proveedor"></ion-nav-view>
         <!-- Tab 2 content -->
       </ion-tab>
 

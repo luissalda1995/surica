@@ -1,9 +1,9 @@
 <ion-view view-title="Servicios-Cliente">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="servicioCliente in ServiciosCtrl.servicioCliente">
-      	<h2>{{servicioCliente.username}}</h2>
-        <p>{{servicioCliente.nombre}}</p>
+      <ion-item ng-repeat="servicioCliente in ServiciosClienteCtrl.serviciosCliente" ng-click="ServiciosClienteCtrl.nuevoChat(servicioCliente.proveedor)">
+      	<h2>{{servicioCliente.proveedor}}</h2>
+        <p>{{servicioCliente.tipoServicio}}</p>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -52,7 +52,7 @@
 		}
 
 		function adicionarProveedor(usuario, proveedorInput){
-			var url = 'http://localhost:3100/servicios/proveedor/' + usuario;
+			var url = 'http://localhost:3100/servicios/cliente/' + usuario;
 			var deferred = $q.defer();
 			var request = {
 				proveedor : proveedorInput

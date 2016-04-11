@@ -14,7 +14,7 @@
     vm.usuario = getUsuario;
 
     function getUsuario(){
-    return usuarioService.usuario();
+      return usuarioService.usuario();
     }
   }
 

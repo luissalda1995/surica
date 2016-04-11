@@ -1,7 +1,7 @@
 <ion-view view-title="Proveedores">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="proveedor in ProveedoresCtrl.proveedores">
+      <ion-item ng-repeat="proveedor in ProveedoresCtrl.proveedores" ng-click="ProveedoresCtrl.adicionarProveedor(proveedor)">
       	<h2>{{proveedor.username}}</h2>
         <p>{{proveedor.nombre}}</p>
       </ion-item>

@@ -19,26 +19,26 @@
 			return getCategorias().then(function(){
 				console.log('Categorias cargadas');
 			});
-		};
+		}
 
 		function getCategorias(){
 			return utilsService.getCategorias().then(function(data){
 				vm.categorias = data.valores;
-				console.log(vm.categorias)
+				console.log(vm.categorias);
 				return vm.categorias;
 				
 			});
-		};
+		}
 
 		function registrar() {
 			usuarioService.registrar(vm.datosUsuario).then(function(data){
-				console.log(data)
+				console.log(data);
 				console.log('usuario registrado con exito');
-				ir('app.categorias')
+				ir('app.categorias');
 			},function(error){
 				console.log(error);
-			})
-		};
+			});
+		}
 
 		function ir(ruta) {
 			$state.go(ruta);

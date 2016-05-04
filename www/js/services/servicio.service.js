@@ -8,12 +8,24 @@
 
 	function servicioService($http, $q){
 		var service = {
+			crearServicio: crearServicio,
 			getServiciosCliente: getServiciosCliente,
 			getServiciosProveedor: getServiciosProveedor,
 			adicionarCliente: adicionarCliente,
 			adicionarProveedor: adicionarProveedor
 		};
 		return service;
+
+		function crearServicio(usuario){
+			var url = 'http://localhost:3100/servicios/' + usuario;
+			var deferred = $q.defer();
+			$http.post(url).then(function(response) {
+				deferred.resolve(response.data);
+			}, function(error) {
+				deferred.reject(error.data);
+			});
+			return deferred.promise;			
+		}
 
 		function getServiciosCliente(usuario){
 			var url = 'http://localhost:3100/servicios/cliente/' + usuario;

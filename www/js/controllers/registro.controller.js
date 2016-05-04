@@ -32,9 +32,13 @@
 
 		function registrar() {
 			usuarioService.registrar(vm.datosUsuario).then(function(data){
-				console.log(data);
-				console.log('usuario registrado con exito');
-				ir('app.categorias');
+				usuarioService.crearServicio(vm.datosUsuario.username).then(function(data){
+					console.log(data);
+					console.log('usuario registrado con exito');
+					ir('app.categorias');
+				}, function(err){
+					console.log(err);
+				});
 			},function(error){
 				console.log(error);
 			});

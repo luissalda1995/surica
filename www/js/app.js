@@ -4,7 +4,7 @@
 // 'suricaApp' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'suricaApp.controllers' is found in controllers.js
-angular.module('suricaApp', ['ionic', 
+angular.module('suricaApp', ['ionic','ionic-material', 
   'suricaApp.routeConfig',
   'suricaApp.directives',
   'suricaApp.filters',
@@ -13,7 +13,8 @@ angular.module('suricaApp', ['ionic',
   'suricaApp.interceptors',
   //'firebase',
   'angular-meteor',
-  'angularMoment'
+  'angularMoment',
+  'ionic-ratings'
   ])
 
 .run(function($ionicPlatform) {

@@ -4,6 +4,8 @@
       <ion-item ng-repeat="servicioCliente in ServiciosClienteCtrl.serviciosCliente" ng-click="ServiciosClienteCtrl.nuevoChat(servicioCliente.proveedor)">
       	<h2>{{servicioCliente.proveedor}}</h2>
         <p>{{servicioCliente.tipoServicio}}</p>
+        <span>Estado del servicio: {{servicioCliente.estado}}</span>
+        <ionic-ratings ng-if="servicioCliente.estado == 'prestado'" ratingsobj='ServiciosClienteCtrl.ratingsObject'></ionic-ratings>
       </ion-item>
     </ion-list>
   </ion-content>

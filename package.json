@@ -26,6 +26,6 @@
   ],
   "cordovaPlatforms": [],
   "scripts": {
-    "postinstall": "bower install"
+    "start": "node server.js && bower install",
   }
 }

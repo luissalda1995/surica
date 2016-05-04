@@ -13,7 +13,7 @@
 		return service;
 
 		function getProveedores(servicio){
-			var url = 'http://vast-waters-86133.herokuapp.com/usuarios/' + servicio;
+			var url = 'https://vast-waters-86133.herokuapp.com/usuarios/' + servicio;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);

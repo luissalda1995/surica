@@ -21,7 +21,7 @@
 		return service;
 
 		function registrar(usuarioInput){
-			var url = 'http://vast-waters-86133.herokuapp.com/usuarios';
+			var url = 'https://vast-waters-86133.herokuapp.com/usuarios';
 			var deferred = $q.defer();
 			var request = {
 				usuario : usuarioInput
@@ -36,7 +36,7 @@
 		}
 
 		function login(usuarioInput){
-			var url = 'http://vast-waters-86133.herokuapp.com/usuarios/login';
+			var url = 'https://vast-waters-86133.herokuapp.com/usuarios/login';
 			var deferred = $q.defer();
 			var request = {
 				username : usuarioInput.username,
@@ -52,7 +52,7 @@
 		}
 
 		function logout(){
-			var url = 'http://vast-waters-86133.herokuapp.com/usuarios/logout';
+			var url = 'https://vast-waters-86133.herokuapp.com/usuarios/logout';
 			var deferred = $q.defer();
 			$http.post(url).then(function(response) {
 				eliminarCredencialesUsuario();

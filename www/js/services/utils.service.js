@@ -13,7 +13,7 @@
 		return service;
 
 		function getCategorias(){
-			var url = 'http://localhost:3100/utils/categorias';
+			var url = 'http://vast-waters-86133.herokuapp.com/utils/categorias';
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);

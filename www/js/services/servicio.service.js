@@ -17,7 +17,7 @@
 		return service;
 
 		function crearServicio(usuario){
-			var url = 'http://localhost:3100/servicios/' + usuario;
+			var url = 'http://vast-waters-86133.herokuapp.com/servicios/' + usuario;
 			var deferred = $q.defer();
 			$http.post(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -28,7 +28,7 @@
 		}
 
 		function getServiciosCliente(usuario){
-			var url = 'http://localhost:3100/servicios/cliente/' + usuario;
+			var url = 'http://vast-waters-86133.herokuapp.com/servicios/cliente/' + usuario;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -39,7 +39,7 @@
 		}
 
 		function getServiciosProveedor(usuario){
-			var url = 'http://localhost:3100/servicios/proveedor/' + usuario;
+			var url = 'http://vast-waters-86133.herokuapp.com/servicios/proveedor/' + usuario;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -50,7 +50,7 @@
 		}
 
 		function adicionarCliente(usuario, clienteInput){
-			var url = 'http://localhost:3100/servicios/proveedor/' + usuario;
+			var url = 'http://vast-waters-86133.herokuapp.com/servicios/proveedor/' + usuario;
 			var deferred = $q.defer();
 			var request = {
 				cliente : clienteInput
@@ -64,7 +64,7 @@
 		}
 
 		function adicionarProveedor(usuario, proveedorInput){
-			var url = 'http://localhost:3100/servicios/cliente/' + usuario;
+			var url = 'http://vast-waters-86133.herokuapp.com/servicios/cliente/' + usuario;
 			var deferred = $q.defer();
 			var request = {
 				proveedor : proveedorInput

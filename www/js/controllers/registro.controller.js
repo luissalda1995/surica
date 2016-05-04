@@ -4,9 +4,9 @@
 	angular.module('suricaApp.controllers').
 		controller('RegistroController', RegistroController);
 
-	RegistroController.$inject = ['usuarioService', 'utilsService', '$state']
+	RegistroController.$inject = ['usuarioService', 'utilsService', 'servicioService', '$state']
 
-	function RegistroController(usuarioService, utilsService, $state){
+	function RegistroController(usuarioService, utilsService, servicioService, $state){
 		var vm = this;
 
 		vm.registrar = registrar;
@@ -32,7 +32,7 @@
 
 		function registrar() {
 			usuarioService.registrar(vm.datosUsuario).then(function(data){
-				usuarioService.crearServicio(vm.datosUsuario.username).then(function(data){
+				servicioService.crearServicio(vm.datosUsuario.username).then(function(data){
 					console.log(data);
 					console.log('usuario registrado con exito');
 					ir('app.categorias');

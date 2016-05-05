@@ -39,8 +39,8 @@
 				}, function(err){
 					console.log(err);
 				});
-			},function(error){
-				console.log(error);
+			},function(err){
+				console.log(err);
 			});
 		}
 

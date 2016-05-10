@@ -19,6 +19,14 @@
                 <input ng-model='RegistroCtrl.datosUsuario.apellido' type="text">
               </label>
               <label class="item item-input item-stacked-label">
+                <span class="input-label">Telefono</span>
+                <input ng-model='RegistroCtrl.datosUsuario.telefono' type="tel">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Dirección</span>
+                <input ng-model='RegistroCtrl.datosUsuario.direccion' type="text">
+              </label>
+              <label class="item item-input item-stacked-label">
                 <span class="input-label">Servicio</span>
                 <select ng-model='RegistroCtrl.datosUsuario.servicio'>
                   <option ng-repeat="categoria in RegistroCtrl.categorias">{{categoria}}</option>

@@ -12,7 +12,9 @@
 			getServiciosCliente: getServiciosCliente,
 			getServiciosProveedor: getServiciosProveedor,
 			adicionarCliente: adicionarCliente,
-			adicionarProveedor: adicionarProveedor
+			adicionarProveedor: adicionarProveedor,
+			cambiarEstadoCliente: cambiarEstadoCliente,
+			cambiarEstadoProveedor: cambiarEstadoProveedor
 		};
 		return service;
 
@@ -76,5 +78,34 @@
 			});
 			return deferred.promise;
 		}
+
+		function cambiarEstadoCliente(usuario, informacionServicioInput){
+			var url = 'http://localhost:3100/servicios/cliente/estado/' + usuario;
+			var deferred = $q.defer();
+			var request = {
+				informacionServicio : informacionServicioInput
+			};
+			$http.post(url, request).then(function(response) {
+				deferred.resolve(response.data);
+			}, function(error) {
+				deferred.reject(error.data);
+			});
+			return deferred.promise;
+		}
+
+		function cambiarEstadoProveedor(usuario, informacionServicioInput){
+			var url = 'http://localhost:3100/servicios/proveedor/estado/' + usuario;
+			var deferred = $q.defer();
+			var request = {
+				informacionServicio : informacionServicioInput
+			};
+			$http.post(url, request).then(function(response) {
+				deferred.resolve(response.data);
+			}, function(error) {
+				deferred.reject(error.data);
+			});
+			return deferred.promise;
+		}
+
 	}
 })();

@@ -4,14 +4,20 @@
 	angular.module('suricaApp.controllers').
 		controller('ChatDetalleController', ChatDetalleController);
 
-	ChatDetalleController.$inject = ['$scope', '$stateParams', '$timeout', '$ionicScrollDelegate', '$meteor', 'usuarioService', '$ionicPopup']
+	ChatDetalleController.$inject = ['$scope', '$stateParams', '$timeout', '$ionicScrollDelegate', '$meteor', 'usuarioService', 'servicioService', '$ionicPopup'];
 
-	function ChatDetalleController ($scope, $stateParams, $timeout, $ionicScrollDelegate, $meteor, usuarioService, $ionicPopup) {
+	function ChatDetalleController ($scope, $stateParams, $timeout, $ionicScrollDelegate, $meteor, usuarioService, servicioService, $ionicPopup) {
 
       var vm = this;
       var usuarioId = usuarioService.usuario().username;
       vm.usuario = getUsuario;
 	  vm.chat = $scope.$meteorObject(Chats, $stateParams.chatId, false);
+	  var datosServicio = {
+	  	cliente : usuarioId,
+	  	proveedor : getProveedor(vm.chat),
+	  	estado : 'Esperando aprobacion',
+	  	precio : null
+	  };
 	 
 	  vm.mensajes = $scope.$meteorCollection(function () {
 	    return Mensajes.find({ chatId: $stateParams.chatId });
@@ -23,8 +29,6 @@
 	  vm.inputUp = inputUp;
 	  vm.inputDown = inputDown;
 	  vm.abirPopupValor = abirPopupValor;
-	 
-	  ////////////
 	 
 	  function enviarMensaje () {
 	    if (_.isEmpty(vm.data.mensaje)) {
@@ -73,17 +77,34 @@
 		         //don't allow the user to close unless he enters wifi password
 		         e.preventDefault();
 		       } else {
+		       	 datosServicio.valorAcordado = $scope.datosServicio.valorAcordado;
 		         return $scope.datosServicio.valorAcordado;
 		       }
 		     }
 		   },
 		 ]
 		});
-		myPopup.then(function(res) {	
+		myPopup.then(function(res) {
+		 servicioService.cambiarEstadoCliente(datosServicio.cliente, datosServicio).then(function(data){
+		 	servicioService.cambiarEstadoProveedor(datosServicio.proveedor, datosServicio).then(function(){
+		 		console.log('Estado cambiado');
+		 	}, function(err){
+		 		console.log(err);
+		 	});
+		 },function(err){
+		 	console.log(err);
+		 });	
 		 console.log('Tapped!', res);
 		});
 
-	  }
-	  
+	  };
+
+	  function getProveedor(chat) {
+	 	if(usuarioService.usuario().username != chat.userIds[1]){
+	    	return chat.userIds[1];
+	 	}else{
+			return chat.userIds[0];
+	 	}
+	  };
 	}
 })();

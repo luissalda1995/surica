@@ -4,12 +4,18 @@
 	angular
 	  .module('suricaApp.filters')
 	  .filter('chatName', chatName);
+
+  chatName.$inject = ['usuarioService'];
 	 
-	function chatName () {
+	function chatName (usuarioService) {
 	  return function (chat) {
 	    if (!chat) return;
-	 
-	    return chat.userIds[1];
+	 	
+	 	if(usuarioService.usuario().username != chat.userIds[1]){
+	    	return chat.userIds[1];
+	 	}else{
+			return chat.userIds[0];
+	 	}
 	  };
 	}	
 })();

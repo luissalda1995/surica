@@ -1,7 +1,7 @@
 <ion-view view-title="Servicios-Cliente">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="servicioCliente in ServiciosClienteCtrl.serviciosCliente" ng-click="ServiciosClienteCtrl.nuevoChat(servicioCliente.proveedor)">
+      <ion-item ng-repeat="servicioCliente in ServiciosClienteCtrl.serviciosCliente" ng-click="ServiciosClienteCtrl.abrirOpcionesServicio()">
       	<h2>{{servicioCliente.proveedor}}</h2>
         <p>{{servicioCliente.tipoServicio}}</p>
         <span>Estado del servicio: {{servicioCliente.estado}}</span>

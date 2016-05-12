@@ -4,12 +4,13 @@
 	angular.module('suricaApp.controllers').
 		controller('ServiciosClienteController', ServiciosClienteController);
 
-	ServiciosClienteController.$inject = ['servicioService','usuarioService','$stateParams', '$state'];
+	ServiciosClienteController.$inject = ['servicioService','usuarioService','$stateParams', '$state', '$ionicActionSheet'];
 
-	function ServiciosClienteController(servicioService, usuarioService, $stateParams, $state) {
+	function ServiciosClienteController(servicioService, usuarioService, $stateParams, $state, $ionicActionSheet) {
 		var vm = this;
 		vm.serviciosCliente = [];
 		vm.nuevoChat = nuevoChat;
+		vm.abrirOpcionesServicio = abrirOpcionesServicio;
 		vm.ratingsObject = {
 			iconOn: 'ion-ios-star',    //Optional
 			iconOff: 'ion-ios-star-outline',   //Optional
@@ -58,6 +59,25 @@
 		 
 		      goToChat(result);
 		    });
+		}
+
+		function abrirOpcionesServicio(){
+		   var hideSheet = $ionicActionSheet.show({
+		     buttons: [
+		       { text: '<b>Share</b> This' },
+		       { text: 'Move' }
+		     ],
+		     destructiveText: 'Delete',
+		     titleText: 'Modify your album',
+		     cancelText: 'Cancel',
+		     cancel: function() {
+		          // add cancel code..
+		        },
+		     buttonClicked: function(index) {
+		       return true;
+		     }
+		   });
+
 		}
 		
 

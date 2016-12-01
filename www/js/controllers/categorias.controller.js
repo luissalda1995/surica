@@ -24,7 +24,7 @@
 		function getCategorias(){
 			return utilsService.getCategorias().then(function(data){
 				vm.categorias = data.valores;
-				console.log(vm.categorias)
+				console.log(vm.categorias);
 				return vm.categorias;
 				
 			});

@@ -4,7 +4,7 @@
 	angular.module('suricaApp.services').
 		factory('servicioService', servicioService);
 
-	servicioService.$inject = ['$http', '$q']
+	servicioService.$inject = ['$http', '$q'];
 
 	function servicioService($http, $q){
 		var service = {
@@ -19,7 +19,7 @@
 		return service;
 
 		function crearServicio(usuario){
-			var url = 'https://vast-waters-86133.herokuapp.com/servicios/' + usuario;
+			var url = 'http://localhost:3100/servicios/' + usuario;
 			var deferred = $q.defer();
 			$http.post(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -30,7 +30,7 @@
 		}
 
 		function getServiciosCliente(usuario){
-			var url = 'https://vast-waters-86133.herokuapp.com/servicios/cliente/' + usuario;
+			var url = 'http://localhost:3100/servicios/cliente/' + usuario;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -41,7 +41,7 @@
 		}
 
 		function getServiciosProveedor(usuario){
-			var url = 'https://vast-waters-86133.herokuapp.com/servicios/proveedor/' + usuario;
+			var url = 'http://localhost:3100/servicios/proveedor/' + usuario;
 			var deferred = $q.defer();
 			$http.get(url).then(function(response) {
 				deferred.resolve(response.data);
@@ -52,7 +52,7 @@
 		}
 
 		function adicionarCliente(usuario, clienteInput){
-			var url = 'https://vast-waters-86133.herokuapp.com/servicios/proveedor/' + usuario;
+			var url = 'http://localhost:3100/servicios/proveedor/' + usuario;
 			var deferred = $q.defer();
 			var request = {
 				cliente : clienteInput
@@ -66,7 +66,7 @@
 		}
 
 		function adicionarProveedor(usuario, proveedorInput){
-			var url = 'https://vast-waters-86133.herokuapp.com/servicios/cliente/' + usuario;
+			var url = 'http://localhost:3100/servicios/cliente/' + usuario;
 			var deferred = $q.defer();
 			var request = {
 				proveedor : proveedorInput

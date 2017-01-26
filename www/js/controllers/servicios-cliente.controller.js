@@ -64,8 +64,8 @@
 		function abrirOpcionesServicio(){
 		   var hideSheet = $ionicActionSheet.show({
 		     buttons: [
-		       { text: '<b>Share</b> This' },
-		       { text: 'Move' }
+		       { text: '<b>Finalizar servicio</b> This' },
+		       { text: 'Cancelar servicio' }
 		     ],
 		     destructiveText: 'Delete',
 		     titleText: 'Modify your album',
@@ -74,6 +74,10 @@
 		          // add cancel code..
 		        },
 		     buttonClicked: function(index) {
+		     	swicth(index){
+		     		case 0: finalizarServicio()
+		     		case 1: cancelarServicio()
+		     	}
 		       return true;
 		     }
 		   });
@@ -92,6 +96,14 @@
 			  template: 'Please try again',
 			  okType: 'button-positive button-clear'
 			});
+		}
+
+		function finalizarServicio(){
+
+		}
+
+		function cancelarServicio(){
+			
 		}
 	}
 })();
